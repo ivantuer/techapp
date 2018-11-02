@@ -7,7 +7,9 @@ import PageNumbers from './components/PageNumbers'
 import Buttons from './components/Buttons'
 import './App.css'
 
-const data = require('./countries.json')
+const countriesData = require('./countries.json')
+const citiesData = require('./cities.json')
+
 class App extends Component {
   state = {
     availablePages: [1],
@@ -18,7 +20,10 @@ class App extends Component {
     validated: null,
 
     country: '',
+    countryNumber: null,
     city: '',
+    countryArray: [],
+    citiesArray: [],
   }
 
   changeCurrentPage = e => {
@@ -30,6 +35,8 @@ class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
     e.target.name === 'email' && this.setState({ validated: null })
+    e.target.name === 'country' && this.getCountryName(e)
+    e.target.name === 'city' && this.getCityName()
   }
 
   changePageWithButton = e => {
@@ -51,7 +58,55 @@ class App extends Component {
   }
 
   getCountryName = e => {
-    // for(let key in data)
+    const newArr = []
+    let countryNumber
+    for (const key of Object.keys(countriesData)) {
+      if (
+        countriesData[key]
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase()) &&
+        countriesData[key].toLowerCase() !== e.target.value.toLowerCase()
+      )
+        newArr.push({
+          key: key,
+          data: countriesData[key],
+        })
+      if (countriesData[key].toLowerCase() === e.target.value.toLowerCase()) {
+        countryNumber = key
+      }
+    }
+    this.setState({
+      countryArray: newArr,
+      countryNumber: countryNumber,
+    })
+  }
+
+  setCountryWithClick = e => {
+    this.setState({
+      country: e.target.innerText,
+      countryArray: [],
+      countryNumber: parseInt(e.target.id),
+    })
+  }
+  setCityWithClick = e => {
+    this.setState({
+      city: e.target.innerText,
+      citiesArray: [],
+    })
+  }
+
+  getCityName = e => {
+    const newArr = []
+    let countryNumber = this.state.countryNumber
+    for (const key of Object.keys(citiesData)) {
+      if (
+        +citiesData[key].country === countryNumber &&
+        citiesData[key].name.includes(this.state.city)
+      ) {
+        newArr.push(citiesData[key].name)
+      }
+    }
+    this.setState({ citiesArray: newArr })
   }
 
   render() {
@@ -77,12 +132,16 @@ class App extends Component {
             city={this.state.city}
             country={this.state.country}
             getCountryName={this.getCountryName}
+            countryArray={this.state.countryArray}
+            citiesArray={this.state.citiesArray}
+            setCountryWithClick={this.setCountryWithClick}
+            setCityWithClick={this.setCityWithClick}
           />
         ) : (
           ''
         )}
-        {/* {this.state.currentPage === 3 ? <Third /> : ''}
-        {this.state.currentPage === 4 ? <Fourth /> : ''}  */}
+        {this.state.currentPage === 3 ? <Third /> : ''}
+        {/*this.state.currentPage === 4 ? <Fourth /> : ''} */}
         <Buttons
           changeCurrentPage={this.changePageWithButton}
           handleClick={this.handleClick}

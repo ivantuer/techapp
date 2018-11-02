@@ -1,0 +1,32 @@
+.countries-search,
+.city-search {
+  position: absolute;
+  top: 35px;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  padding: 0;
+  opacity: 0.8;
+
+  li {
+    padding-left: 15px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      opacity: 1;
+
+      background: #eee;
+      cursor: pointer;
+    }
+  }
+}
+
+.countries-search {
+  z-index: 1;
+}
+.input-country-search,
+.input-city-search {
+  position: relative;
+}
