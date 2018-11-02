@@ -5,14 +5,14 @@ import Third from './components/Third'
 import Fourth from './components/Fourth'
 import PageNumbers from './components/PageNumbers'
 import Buttons from './components/Buttons'
-import './App.css'
+import './App.scss'
 
 const countriesData = require('./countries.json')
 const citiesData = require('./cities.json')
 
 class App extends Component {
   state = {
-    availablePages: [1],
+    availablePages: [1, 2, 3],
     currentPage: 1,
 
     name: '',
