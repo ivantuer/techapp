@@ -8,6 +8,7 @@
     input[type='text'] {
       box-sizing: border-box;
       font-size: 15px;
+      padding: 10px;
       &::placeholder {
         color: #bbbbbb;
       }
@@ -17,6 +18,11 @@
       border: none;
       height: 35px;
       width: 250px;
+      &.error {
+        border: 1px solid red;
+      }
+    }
+    input[type='checkbox'] {
     }
   }
 }

@@ -34,4 +34,15 @@
       width: 200px;
     }
   }
+  .name {
+    position: relative;
+    .error {
+      color: #ff0000;
+      position: absolute;
+      top: 25px;
+      right: -210px;
+      transform: translate(0, -50%);
+      width: 200px;
+    }
+  }
 }

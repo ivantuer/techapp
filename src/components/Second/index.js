@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
+import Buttons from '../Buttons'
+
 import './Second.scss'
 
 class Second extends Component {
   render() {
     const {
+      handleCountryChange,
+      handleCityChange,
       country,
       city,
-      getCountryName,
-      getCityName,
       countryArray,
-      handleChange,
-      setCountryWithClick,
       citiesArray,
+      setCountryWithClick,
       setCityWithClick,
+      handleClickNextPage,
+      handleClickPrevPage,
     } = this.props
     return (
       <div className="first-page">
@@ -22,18 +25,18 @@ class Second extends Component {
             type="search"
             placeholder="Select your country"
             value={country}
-            onChange={handleChange}
+            onChange={handleCountryChange}
             name="country"
           />
           {countryArray && (
             <ul className="countries-search">
-              {countryArray.map(el => (
+              {countryArray.map((country, index) => (
                 <li
-                  key={el.key + '_country'}
-                  id={el.key + '_country'}
+                  key={country + '_country'}
+                  id={index + '_country'}
                   onClick={setCountryWithClick}
                 >
-                  {el.data}
+                  {country}
                 </li>
               ))}
             </ul>
@@ -44,23 +47,27 @@ class Second extends Component {
             type="search"
             placeholder="Select Your City"
             value={city}
-            onChange={handleChange}
+            onChange={handleCityChange}
             name="city"
           />
           {citiesArray && (
             <ul className="city-search">
-              {citiesArray.map((el, index) => (
+              {citiesArray.map((city, index) => (
                 <li
                   key={index + '_city'}
                   id={index + '_city'}
                   onClick={setCityWithClick}
                 >
-                  {el}
+                  {city.name}
                 </li>
               ))}
             </ul>
           )}
         </div>
+        <Buttons
+          handleClickNextPage={handleClickNextPage}
+          handleClickPrevPage={handleClickPrevPage}
+        />
       </div>
     )
   }
