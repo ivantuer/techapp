@@ -32,7 +32,7 @@ class Input extends Component {
           />
           {nameIsValid === false && (
             <label htmlFor="name" className="error">
-              -check your name
+              - Введите ваше имя
             </label>
           )}
         </div>
@@ -51,7 +51,7 @@ class Input extends Component {
           />
           {validated === false && (
             <label htmlFor="email" className="error">
-              -check your email
+              - Проверьте ваш Email
             </label>
           )}
         </div>
