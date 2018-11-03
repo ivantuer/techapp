@@ -398,7 +398,7 @@ class MainComponent extends Component {
           vk={vk}
           ok={ok}
           face={face}
-          twit={face}
+          twit={twit}
         />
       </div>
     )
