@@ -269,8 +269,9 @@ class MainComponent extends Component {
       okInput: '',
 
       currentImage: null,
-      socialError: false,
-      animalError: false,
+      socialError: null,
+      animalError: null,
+      animalIsEmpty: null,
     })
   }
 

@@ -26,7 +26,7 @@ class Second extends Component {
           <input
             onClick={handleCountryChange}
             type="search"
-            placeholder="Select your country"
+            placeholder="Страна..."
             value={country}
             onChange={handleCountryChange}
             name="country"
@@ -50,7 +50,7 @@ class Second extends Component {
           <input
             onClick={handleCityChange}
             type="search"
-            placeholder="Select Your City"
+            placeholder="Город..."
             value={city}
             onChange={handleCityChange}
             name="city"

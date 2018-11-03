@@ -23,8 +23,8 @@ class Fifth extends Component {
         <div className="visit-card">
           <div className="left-side">
             <div className="name-email">
-              <h2>{name} NAME</h2>
-              <p>{email} email</p>
+              <h2>{name}</h2>
+              <p>{email}</p>
             </div>
             <p>
               {country}, {city}

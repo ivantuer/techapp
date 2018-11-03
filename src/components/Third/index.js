@@ -39,6 +39,7 @@ class Third extends Component {
               className={socialError && faceInput === '' ? 'error' : ''}
               type="text"
               name="faceInput"
+              placeholder="Ваша страница в Facebook"
               value={faceInput}
               onChange={handleSocial}
             />
@@ -59,6 +60,7 @@ class Third extends Component {
               className={socialError && vkInput === '' ? 'error' : ''}
               type="text"
               name="vkInput"
+              placeholder="Ваша страница в Vk"
               value={vkInput}
               onChange={handleSocial}
             />
@@ -80,6 +82,7 @@ class Third extends Component {
               className={socialError && twitInput === '' ? 'error' : ''}
               type="text"
               name="twitInput"
+              placeholder="Ваша страница в Twitter"
               value={twitInput}
               onChange={handleSocial}
             />
@@ -101,6 +104,7 @@ class Third extends Component {
               className={socialError && okInput === '' ? 'error' : ''}
               type="text"
               name="okInput"
+              placeholder="Ваша страница в Ok"
               value={okInput}
               onChange={handleSocial}
             />
