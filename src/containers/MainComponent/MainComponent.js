@@ -158,9 +158,12 @@ class MainComponent extends Component {
       console.log('safsdfs')
       if (currentImage === 'dog-4') {
         this.setState({ animalError: true })
+      } else if (currentImage === null) {
+        this.setState({ animalIsEmpty: true })
       } else {
         this.setState({
           animalError: false,
+          animalIsEmpty: false,
           currentPage: currentPage + 1,
           availablePages: [...availablePages, currentPage + 1],
         })
@@ -229,7 +232,11 @@ class MainComponent extends Component {
   }
 
   handleImageClick = e => {
-    this.setState({ currentImage: e.target.alt })
+    this.setState({
+      currentImage: e.target.alt,
+      animalIsEmpty: false,
+      animalError: false,
+    })
   }
 
   resetState = () => {
@@ -293,6 +300,7 @@ class MainComponent extends Component {
       nameIsValid,
       socialError,
       animalError,
+      animalIsEmpty,
     } = this.state
     const currentStep = steps[currentPage]
 
@@ -355,6 +363,7 @@ class MainComponent extends Component {
             animalError={animalError}
             handleClickNextPage={this.handleClickNextPage}
             handleClickPrevPage={this.handleClickPrevPage}
+            animalIsEmpty={animalIsEmpty}
           />
         )}
       </div>

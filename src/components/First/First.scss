@@ -50,6 +50,8 @@
   .first-page {
     .email,
     .name {
+      width: 350px;
+      align-items: flex-start;
       flex-direction: column;
     }
   }

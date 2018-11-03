@@ -14,6 +14,7 @@ class Fourth extends Component {
       handleImageClick,
       currentImage,
       animalError,
+      animalIsEmpty,
     } = this.props
     return (
       <div className="fourth-page">
@@ -47,6 +48,9 @@ class Fourth extends Component {
         </div>
         {animalError === true && (
           <p className="error"> Вы выбрали собачку, а надо котика</p>
+        )}
+        {animalIsEmpty === true && (
+          <p className="error">Выберите котика, пожалуйста</p>
         )}
         <Buttons
           pageNumber={4}
