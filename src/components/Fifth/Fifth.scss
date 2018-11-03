@@ -76,7 +76,14 @@
       flex-direction: column-reverse;
     }
     .left-side {
-      height: 120px;
+      box-sizing: border-box;
+      padding: 10px;
+      height: auto;
+      width: 280px;
+      p,
+      h2 {
+        word-wrap: break-word;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@ import './MainComponent.css'
 
 import countriesData from '../../utils/countries.json'
 import citiesData from '../../utils/cities.json'
-import { validate } from '../../utils/validation'
+import { validate, linkValidate } from '../../utils/validation'
 import {
   FIRST_STEP,
   SECOND_STEP,
@@ -142,10 +142,10 @@ class MainComponent extends Component {
     }
     if (currentPage === 3) {
       if (
-        !!vkInput === !!vk &&
-        !!okInput === !!ok &&
-        !!twitInput === !!twit &&
-        !!faceInput === !!face
+        vk === linkValidate(vkInput) &&
+        face === linkValidate(faceInput) &&
+        ok === linkValidate(okInput) &&
+        twit === linkValidate(twitInput)
       ) {
         this.setState({
           socialError: false,
@@ -155,7 +155,6 @@ class MainComponent extends Component {
       } else this.setState({ socialError: true })
     }
     if (currentPage === 4) {
-      console.log('safsdfs')
       if (currentImage === 'dog-4') {
         this.setState({ animalError: true })
       } else if (currentImage === null) {
@@ -228,7 +227,7 @@ class MainComponent extends Component {
     this.setState({ [e.target.name]: !this.state[e.target.name] })
   }
   handleSocial = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value, socialError: null })
   }
 
   handleImageClick = e => {
