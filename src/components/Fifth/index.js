@@ -12,6 +12,10 @@ class Fifth extends Component {
       city,
       country,
       currentImage,
+      vk,
+      face,
+      twit,
+      ok,
       vkInput,
       faceInput,
       twitInput,
@@ -31,25 +35,25 @@ class Fifth extends Component {
             </p>
 
             <div>
-              {vkInput && (
+              {vk && (
                 <p>
                   <span>Vk: </span>
                   {vkInput}
                 </p>
               )}
-              {okInput && (
+              {ok && (
                 <p>
                   <span>Ok: </span>
                   {okInput}
                 </p>
               )}
-              {faceInput && (
+              {face && (
                 <p>
                   <span>Facebook: </span>
                   {faceInput}
                 </p>
               )}
-              {twitInput && (
+              {twit && (
                 <p>
                   <span>Twitter: </span>
                   {twitInput}

@@ -152,6 +152,17 @@ class MainComponent extends Component {
           currentPage: currentPage + 1,
           availablePages: [...availablePages, currentPage + 1],
         })
+      } else if (
+        vk === false &&
+        face === false &&
+        ok === false &&
+        twit === false
+      ) {
+        this.setState({
+          socialError: false,
+          currentPage: currentPage + 1,
+          availablePages: [...availablePages, currentPage + 1],
+        })
       } else this.setState({ socialError: true })
     }
     if (currentPage === 4) {
@@ -224,7 +235,11 @@ class MainComponent extends Component {
   }
 
   handleCheckbox = e => {
-    this.setState({ [e.target.name]: !this.state[e.target.name] })
+    this.setState({
+      [e.target.name]: !this.state[e.target.name],
+
+      socialError: null,
+    })
   }
   handleSocial = e => {
     this.setState({ [e.target.name]: e.target.value, socialError: null })
@@ -380,6 +395,10 @@ class MainComponent extends Component {
           okInput={okInput}
           twitInput={twitInput}
           resetState={this.resetState}
+          vk={vk}
+          ok={ok}
+          face={face}
+          twit={face}
         />
       </div>
     )
