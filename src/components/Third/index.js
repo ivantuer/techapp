@@ -36,11 +36,7 @@ class Third extends Component {
           </div>
           {face && (
             <input
-              className={
-                socialError && faceInput === '' && !linkValidate(faceInput)
-                  ? 'error'
-                  : ''
-              }
+              className={socialError && !linkValidate(faceInput) ? 'error' : ''}
               type="text"
               name="faceInput"
               placeholder="Ваша страница в Facebook"
@@ -61,11 +57,7 @@ class Third extends Component {
           </div>
           {vk && (
             <input
-              className={
-                socialError && vkInput === '' && !linkValidate(vkInput)
-                  ? 'error'
-                  : ''
-              }
+              className={socialError && !linkValidate(vkInput) ? 'error' : ''}
               type="text"
               name="vkInput"
               placeholder="Ваша страница в Vk"
@@ -87,11 +79,7 @@ class Third extends Component {
           </div>
           {twit && (
             <input
-              className={
-                socialError && twitInput === '' && !linkValidate(twitInput)
-                  ? 'error'
-                  : ''
-              }
+              className={socialError && !linkValidate(twitInput) ? 'error' : ''}
               type="text"
               name="twitInput"
               placeholder="Ваша страница в Twitter"
@@ -113,11 +101,7 @@ class Third extends Component {
           </div>
           {ok && (
             <input
-              className={
-                socialError && okInput === '' && !linkValidate(okInput)
-                  ? 'error'
-                  : ''
-              }
+              className={socialError && !linkValidate(okInput) ? 'error' : ''}
               type="text"
               name="okInput"
               placeholder="Ваша страница в Ok"
