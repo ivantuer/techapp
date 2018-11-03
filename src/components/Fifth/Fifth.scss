@@ -69,20 +69,27 @@
 
 @media screen and (max-width: 400px) {
   .fifth-page {
+    margin-top: 70px;
     .visit-card {
       align-items: center;
       width: 280px;
       height: 400px;
       flex-direction: column-reverse;
-    }
-    .left-side {
-      box-sizing: border-box;
-      padding: 10px;
-      height: auto;
-      width: 280px;
-      p,
-      h2 {
-        word-wrap: break-word;
+
+      .left-side {
+        box-sizing: border-box;
+        padding: 10px;
+        height: auto;
+        width: 232px;
+
+        p,
+        h2 {
+          word-wrap: break-word;
+        }
+      }
+      img {
+        width: 200px;
+        height: 200px;
       }
     }
   }
