@@ -1,5 +1,4 @@
 .page-numbers {
-  margin-top: 150px;
   list-style: none;
   display: flex;
   li {
@@ -16,5 +15,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .page-numbers {
+    margin-top: 50px;
   }
 }

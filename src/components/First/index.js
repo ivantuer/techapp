@@ -25,7 +25,7 @@ class Input extends Component {
                 : { border: 'none' }
             }
             type="text"
-            placeholder="Your name..."
+            placeholder="Ваше имя..."
             value={name}
             onChange={handleNameChange}
             name="name"
@@ -44,7 +44,7 @@ class Input extends Component {
                 : { border: 'none' }
             }
             type="email"
-            placeholder="Your email..."
+            placeholder="Ваш email..."
             value={email}
             onChange={handleEmailChange}
             name="email"

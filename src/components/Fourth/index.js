@@ -45,7 +45,9 @@ class Fourth extends Component {
             onClick={handleImageClick}
           />
         </div>
-        {animalError === true && <p> Вы выбрали собачку, а надо котика</p>}
+        {animalError === true && (
+          <p className="error"> Вы выбрали собачку, а надо котика</p>
+        )}
         <Buttons
           pageNumber={4}
           handleClickNextPage={handleClickNextPage}

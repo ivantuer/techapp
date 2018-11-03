@@ -1,10 +1,21 @@
 .third-page {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin-bottom: 50px;
+  }
+  .buttons {
+    margin-top: 100px;
+  }
   .social {
-    height: 60px;
-    width: 400px;
+    height: 36px;
+    width: 415px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+
     input[type='text'] {
       box-sizing: border-box;
       font-size: 15px;
@@ -22,7 +33,22 @@
         border: 1px solid red;
       }
     }
-    input[type='checkbox'] {
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .third-page {
+    p {
+      margin-bottom: 20px;
+    }
+    .social {
+      align-items: flex-start;
+      flex-direction: column;
+      height: 72px;
+      width: 300px;
+    }
+    .buttons {
+      margin-top: 20px;
     }
   }
 }

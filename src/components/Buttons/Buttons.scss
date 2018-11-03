@@ -1,8 +1,11 @@
 .buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 150px;
+
   button {
+    background: white;
+    outline: none;
+    cursor: pointer;
     font-size: 15px;
     font-weight: 700;
     color: #ff9800;

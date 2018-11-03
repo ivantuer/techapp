@@ -3,9 +3,11 @@ import First from '../../components/First'
 import Second from '../../components/Second'
 import Third from '../../components/Third'
 import Fourth from '../../components/Fourth'
+import Fifth from '../../components/Fifth'
+
 import PageNumbers from '../../components/PageNumbers'
 
-import './MainComponent.scss'
+import './MainComponent.css'
 
 import countriesData from '../../utils/countries.json'
 import citiesData from '../../utils/cities.json'
@@ -15,12 +17,13 @@ import {
   SECOND_STEP,
   THIRD_STEP,
   FOURTH_STEP,
+  FIFTH_STEP,
   steps,
 } from './constants'
 
 class MainComponent extends Component {
   state = {
-    availablePages: [1, 4],
+    availablePages: [1],
     currentPage: 1,
 
     name: '',
@@ -33,6 +36,8 @@ class MainComponent extends Component {
     city: '',
     countryArray: [],
     citiesArray: [],
+    cityIsValid: null,
+    countryIsValid: null,
 
     face: false,
     vk: false,
@@ -62,12 +67,21 @@ class MainComponent extends Component {
   }
 
   handleCountryChange = e => {
-    this.setState({ country: e.target.value })
+    this.setState({
+      country: e.target.value,
+      citiesArray: [],
+      countryIsValid: null,
+      availablePages: [1, 2],
+    })
     this.getCountryName(e)
   }
 
   handleCityChange = e => {
-    this.setState({ city: e.target.value })
+    this.setState({
+      city: e.target.value,
+      cityIsValid: null,
+      availablePages: [1, 2],
+    })
     this.getCityName(e)
   }
 
@@ -79,6 +93,8 @@ class MainComponent extends Component {
       vk,
       twit,
       ok,
+
+      countryNumber,
 
       faceInput,
       vkInput,
@@ -105,17 +121,23 @@ class MainComponent extends Component {
     }
     if (currentPage === 2) {
       const { city, country } = this.state
-      console.log(1)
-      city !== '' && country !== ''
+      const isCountryValid = Object.values(countriesData).some(
+        el => el.toLowerCase() === country.toLowerCase()
+      )
+      const isCityValid = Object.values(citiesData).some(
+        cityFromArray =>
+          cityFromArray.country === countryNumber && cityFromArray.name === city
+      )
+      isCountryValid && isCityValid
         ? this.setState({
-            cityIsValid: city !== '',
-            countryIsValid: country !== '',
+            cityIsValid: isCityValid,
+            countryIsValid: isCountryValid,
             currentPage: currentPage + 1,
             availablePages: [...availablePages, currentPage + 1],
           })
         : this.setState({
-            cityIsValid: city !== '',
-            countryIsValid: country !== '',
+            cityIsValid: isCityValid,
+            countryIsValid: isCountryValid,
           })
     }
     if (currentPage === 3) {
@@ -126,6 +148,7 @@ class MainComponent extends Component {
         !!faceInput === !!face
       ) {
         this.setState({
+          socialError: false,
           currentPage: currentPage + 1,
           availablePages: [...availablePages, currentPage + 1],
         })
@@ -173,6 +196,8 @@ class MainComponent extends Component {
     this.setState({
       country: e.target.innerText,
       countryArray: [],
+      citiesArray: [],
+
       countryNumber,
     })
   }
@@ -188,7 +213,9 @@ class MainComponent extends Component {
     const citiesArray = Object.values(citiesData).filter(cityAutoComplete => {
       return (
         cityAutoComplete.country === countryNumber &&
-        cityAutoComplete.name.includes(e.target.value)
+        cityAutoComplete.name
+          .toLowerCase()
+          .includes(e.target.value.toLowerCase())
       )
     })
     this.setState({ citiesArray })
@@ -205,16 +232,54 @@ class MainComponent extends Component {
     this.setState({ currentImage: e.target.alt })
   }
 
+  resetState = () => {
+    this.setState({
+      availablePages: [1],
+      currentPage: 1,
+
+      name: '',
+      nameIsValid: null,
+      email: '',
+      currentEmail: '',
+      validated: null,
+
+      country: '',
+      countryNumber: null,
+      city: '',
+      countryArray: [],
+      citiesArray: [],
+      cityIsValid: null,
+      countryIsValid: null,
+
+      face: false,
+      vk: false,
+      twit: false,
+      ok: false,
+
+      faceInput: '',
+      vkInput: '',
+      twitInput: '',
+      okInput: '',
+
+      currentImage: null,
+      socialError: false,
+      animalError: false,
+    })
+  }
+
   render() {
     const {
       currentPage,
       name,
       email,
+      currentEmail,
       validated,
       city,
       country,
       countryArray,
       citiesArray,
+      cityIsValid,
+      countryIsValid,
       vk,
       ok,
       face,
@@ -231,7 +296,7 @@ class MainComponent extends Component {
     } = this.state
     const currentStep = steps[currentPage]
 
-    return (
+    return currentStep !== FIFTH_STEP ? (
       <div className="main-wrapper">
         <PageNumbers
           availablePages={availablePages}
@@ -262,6 +327,8 @@ class MainComponent extends Component {
             setCityWithClick={this.setCityWithClick}
             handleClickNextPage={this.handleClickNextPage}
             handleClickPrevPage={this.handleClickPrevPage}
+            cityIsValid={cityIsValid}
+            countryIsValid={countryIsValid}
           />
         )}
         {currentStep === THIRD_STEP && (
@@ -290,6 +357,21 @@ class MainComponent extends Component {
             handleClickPrevPage={this.handleClickPrevPage}
           />
         )}
+      </div>
+    ) : (
+      <div className="visit-wrapper">
+        <Fifth
+          name={name}
+          email={currentEmail}
+          city={city}
+          country={country}
+          currentImage={currentImage}
+          faceInput={faceInput}
+          vkInput={vkInput}
+          okInput={okInput}
+          twitInput={twitInput}
+          resetState={this.resetState}
+        />
       </div>
     )
   }

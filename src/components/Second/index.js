@@ -12,21 +12,25 @@ class Second extends Component {
       city,
       countryArray,
       citiesArray,
+      cityIsValid,
+      countryIsValid,
       setCountryWithClick,
       setCityWithClick,
       handleClickNextPage,
       handleClickPrevPage,
     } = this.props
     return (
-      <div className="first-page">
+      <div className="second-page">
         <p>2. Выберите страну и город</p>
         <div className="input-country-search">
           <input
+            onClick={handleCountryChange}
             type="search"
             placeholder="Select your country"
             value={country}
             onChange={handleCountryChange}
             name="country"
+            className={countryIsValid === false ? 'error' : ''}
           />
           {countryArray && (
             <ul className="countries-search">
@@ -44,11 +48,13 @@ class Second extends Component {
         </div>
         <div className="input-city-search">
           <input
+            onClick={handleCityChange}
             type="search"
             placeholder="Select Your City"
             value={city}
             onChange={handleCityChange}
             name="city"
+            className={cityIsValid === false ? 'error' : ''}
           />
           {citiesArray && (
             <ul className="city-search">

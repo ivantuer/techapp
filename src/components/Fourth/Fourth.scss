@@ -4,7 +4,8 @@
   .animals {
     display: flex;
     justify-content: space-between;
-    margin-left: -55%;
+    transform: translate(-20%, 0);
+    margin-bottom: 100px;
     width: 660px;
     align-items: center;
     img {
@@ -17,9 +18,44 @@
         border: 3px solid #ff9800;
       }
     }
+    .error {
+      color: #ff0000;
+    }
   }
   .finish {
     background: #ff9800;
     color: #fff;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .fourth-page {
+    .animals {
+      width: 400px;
+      flex-wrap: wrap;
+      transform: translate(-15%, 0);
+      img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 16px;
+      }
+      margin-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .fourth-page {
+    .animals {
+      width: 290px;
+      flex-wrap: wrap;
+      transform: translate(0, 0);
+      img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 16px;
+      }
+      margin-left: 0;
+    }
   }
 }
