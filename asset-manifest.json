@@ -1,7 +1,7 @@
 {
-  "main.css": "/techapp/static/css/main.0fa66105.chunk.css",
-  "main.js": "/techapp/static/js/main.0be8b54b.chunk.js",
-  "main.js.map": "/techapp/static/js/main.0be8b54b.chunk.js.map",
+  "main.css": "/techapp/static/css/main.eea4f9f7.chunk.css",
+  "main.js": "/techapp/static/js/main.728b1726.chunk.js",
+  "main.js.map": "/techapp/static/js/main.728b1726.chunk.js.map",
   "static/js/1.dff17d37.chunk.js": "/techapp/static/js/1.dff17d37.chunk.js",
   "static/js/1.dff17d37.chunk.js.map": "/techapp/static/js/1.dff17d37.chunk.js.map",
   "runtime~main.js": "/techapp/static/js/runtime~main.28e3da7d.js",
@@ -10,8 +10,8 @@
   "static/media/cat3.jpg": "/techapp/static/media/cat3.dcdd9149.jpg",
   "static/media/dog4.jpg": "/techapp/static/media/dog4.2ce9e417.jpg",
   "static/media/cat2.jpg": "/techapp/static/media/cat2.ba354008.jpg",
-  "static/css/main.0fa66105.chunk.css.map": "/techapp/static/css/main.0fa66105.chunk.css.map",
+  "static/css/main.eea4f9f7.chunk.css.map": "/techapp/static/css/main.eea4f9f7.chunk.css.map",
   "index.html": "/techapp/index.html",
-  "precache-manifest.2283cabd94f9813df0a9d3a7d5ba98a9.js": "/techapp/precache-manifest.2283cabd94f9813df0a9d3a7d5ba98a9.js",
+  "precache-manifest.90518322ac175323ceb7bc00c3deaf64.js": "/techapp/precache-manifest.90518322ac175323ceb7bc00c3deaf64.js",
   "service-worker.js": "/techapp/service-worker.js"
 }
